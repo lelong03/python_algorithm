@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+.idea
+.idea/Project_Default.xml
+
