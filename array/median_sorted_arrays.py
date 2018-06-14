@@ -27,17 +27,17 @@ def get_median_and_index(l, start, end):
         return index, l[index]
     else:
         index = start+size/2
-        return (l[index] + l[index+1])
+        return index, (l[index] + l[index+1]) / 2
 
 def find(a, a_start, a_end, b, b_start, b_end):
     if (a_end - a_start + 1) == 2 and (b_end - b_start + 1) == 2:
-        return (max(a[a_start], b[b_start]) + min(a[a_end], b[b_end])) / 2
+        return (max(a[a_start], b[b_start]) + min(a[a_end], b[b_end])) / 2.0
 
     mid_index_a, median_a = get_median_and_index(a, a_start, a_end)
     mid_index_b, median_b = get_median_and_index(b, b_start, b_end)
 
     if median_a == median_b:
-        return median_a
+        return median_a * 1.0
 
     if median_a > median_b:
         return find(a, a_start, mid_index_a, b, mid_index_b, b_end)
