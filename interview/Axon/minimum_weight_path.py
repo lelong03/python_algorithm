@@ -23,7 +23,7 @@ class Graph():
         return min_index
 
     def get_shortest_path(self, start, end):
-        dist = [sys.maxint] * self.vertex_num
+        dist = [sys.maxint] * (self.vertex_num + 1)
         dist[start] = 0
         S = set()
         Q = self.vertices.copy()
@@ -31,12 +31,16 @@ class Graph():
             u = self.min_distance(Q, dist)
             Q.remove(u)
             S.add(u)
+            if u == end:
+                break
+            if u not in self.vertices_dict:
+                continue
             neighbors = self.vertices_dict[u]
             for nei in neighbors:
                 weight = neighbors[nei]
                 if dist[nei] > dist[u] + weight:
                     dist[nei] = dist[u] + weight
-        return dist
+        return dist[end]
 
     def __str__(self):
         return str(self.vertices_dict)
@@ -45,17 +49,13 @@ class Graph():
 g = Graph(6)
 g.set_edge(1, 2, 2)
 g.set_edge(1, 3, 4)
-
 g.set_edge(2, 3, 1)
 g.set_edge(2, 4, 4)
 g.set_edge(2, 5, 2)
-
 g.set_edge(3, 5, 3)
-
 g.set_edge(4, 6, 2)
-
 g.set_edge(5, 4, 3)
 g.set_edge(5, 6, 2)
-print g
+# print g
 
-print g.get_shortest_path(1, 6)
+print g.get_shortest_path(3, 6)
