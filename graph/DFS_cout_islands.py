@@ -9,7 +9,6 @@ class sea_graph():
                (c >= 0) and (c < self.COL) and \
                (self.graph[r][c]) and (not self.visited[r][c])
 
-
     def DFS(self, r, c):
         row_nbr = [-1, -1, -1, 0, 0, 1, 1, 1]
         col_nbr = [-1, 0, 1, -1, 1, -1, 0, 1]
@@ -61,6 +60,5 @@ graph = [[1, 1, 0, 0, 0],
         [1, 0, 1, 0, 1]]
 
 my_graph = sea_graph(g=graph)
-print(my_graph.count_island())
-print(my_graph.get_bigest_area())
-
+print my_graph.count_island()
+print my_graph.get_bigest_area()

@@ -8,7 +8,6 @@ def mysqrt(n):
         else:
             start = mid
         mid = float(end + start) / 2
-        print mid
     return mid
 
-print mysqrt(3)
+print(mysqrt(3))

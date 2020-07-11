@@ -11,5 +11,5 @@ def max_sum(a):
 
 
 alist = [-3, -4, 6, -2, -3, 2, -1, 6, 10]
-print alist
-print max_sum(alist)
+print(alist)
+print(max_sum(alist))
